@@ -6,14 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles/style.css">
-  <title>Edit character</title>
+  <title>WoW Characters: Edit character</title>
 </head>
 
 <body>
   <header>
-    <h1>Edit character</h1>
-    <a href="/">Home</a>
-    <a href="/chars">Character list</a>
+    <div class="header-container">
+      {{#if char}}
+      <h1>Editing {{char.name}}</h1>
+      {{/if}}
+      <nav>
+        <a href="/chars/" class="nav__link">Characters list</a>
+        <a href="/chars/new-char" class="nav__link">Add new character</a>
+        <a href="/auth/login" class="nav__link">Login</a>
+        <form action="/auth/logout" method="POST" class="nav__link">
+          <button type="submit" value="Logout">Logout</button>
+        </form>
+      </nav>
+    </div>
   </header>
 
   {{#if char}}
@@ -27,89 +37,151 @@
       {{!-- TODO: Hay que configurar el script de abajo --}}
       <label>
         <p>Faction</p>
-        <select name="faction" placeholder="faction">
+        <select name="faction" placeholder="Faction">
           <option value="Alliance">Alliance</option>
           <option value="Horde">Horde</option>
         </select>
       </label>
       <label>
         <p>Race</p>
-        <input value="{{char.race}}" type="text" name="race" placeholder="race">
+        <select name="race" placeholder="Race">
+          <option value="blood elf">Blood elf</option>
+          <option value="dark iron dwarf">Dark Iron dwarf</option>
+          <option value="draenei">Draenei</option>
+          <option value="dwarf">Dwarf</option>
+          <option value="gnome">Gnome</option>
+          <option value="goblin">Goblin</option>
+          <option value="highmountain tauren">Highmountain tauren</option>
+          <option value="kul tiran">Kul Tiran</option>
+          <option value="lightforged draenei">Lightforged draenei</option>
+          <option value="human">Human</option>
+          <option value="mag'har orc">Mag'har orc</option>
+          <option value="mechagnome">Mechagnome</option>
+          <option value="night elf">Night elf</option>
+          <option value="nightborne">Nightborne</option>
+          <option value="orc">Orc</option>
+          <option value="pandaren">Pandaren</option>
+          <option value="tauren">Tauren</option>
+          <option value="troll">Troll</option>
+          <option value="undead">Undead</option>
+          <option value="void elf">Void elf</option>
+          <option value="vulpera">Vulpera</option>
+          <option value="worgen">Worgen</option>
+          <option value="zandalari troll">Zandalari troll</option>
+        </select>
       </label>
       <label>
         <p>Class</p>
-        <input value="{{char.charClass}}" type="text" name="charClass" placeholder="class">
+        <select name="class" placeholder="Class">
+          <option value="death knight">Death knight</option>
+          <option value="demon hunter">Demon hunter</option>
+          <option value="druid">Druid</option>
+          <option value="hunter">Hunter</option>
+          <option value="mage">Mage</option>
+          <option value="monk">Monk</option>
+          <option value="paladin">Paladin</option>
+          <option value="priest">Priest</option>
+          <option value="rogue">Rogue</option>
+          <option value="shaman">Shaman</option>
+          <option value="warlock">Warlock</option>
+          <option value="warrior">Warrior</option>
+        </select>
       </label>
       <label>
         <p>Level</p>
-        <input value="{{char.level}}" type="number" name="level" placeholder="level">
+        <input value="{{char.level}}" type="number" name="level" placeholder="Level">
       </label>
       <label>
         <p>Realm</p>
-        <input value="{{char.realm}}" type="text" name="realm" placeholder="realm">
+        <input value="{{char.realm}}" type="text" name="realm" placeholder="Realm">
       </label>
       <p>Professions:</p>
       {{!-- TODO: No funciona bien el checked --}}
-      <label>
-        <p>Alchemy</p>
-        <input type="checkbox" checked={{char.professions.alchemy}} name="alchemy">
-      </label>
-      <label>
-        <p>Blacksmithing</p>
-        <input type="checkbox" checked={{char.professions.blacksmithing}} name="blacksmithing">
-      </label>
-      <label>
-        <p>Enchanting</p>
-        <input type="checkbox" checked={{char.professions.enchanting}} name="enchanting">
-      </label>
-      <label>
-        <p>Engineering</p>
-        <input type="checkbox" checked={{char.professions.engineering}} name="engineering">
-      </label>
-      <label>
-        <p>Herbalism</p>
-        <input type="checkbox" checked={{char.professions.herbalism}} name="herbalism">
-      </label>
-      <label>
-        <p>Inscription</p>
-        <input type="checkbox" checked={{char.professions.nscription}} name="inscription">
-      </label>
-      <label>
-        <p>Jewelcrafting</p>
-        <input type="checkbox" checked={{char.professions.jewelcrafting}} name="jewelcrafting">
-      </label>
-      <label>
-        <p>Leatherworking</p>
-        <input type="checkbox" checked={{char.professions.leatherworking}} name="leatherworking">
-      </label>
-      <label>
-        <p>Mining</p>
-        <input type="checkbox" checked={{char.professions.mining}} name="mining">
-      </label>
-      <label>
-        <p>Skinning</p>
-        <input type="checkbox" checked={{char.professions.skinnig}} name="skinnig">
-      </label>
-      <label>
-        <p>Tailoring</p>
-        <input type="checkbox" checked={{char.professions.tailoring}} name="tailoring">
-      </label>
-      <button type="submit">Edit</button>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.alchemy}} name="alchemy">
+          <span>Alchemy</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.blacksmithing}} name="blacksmithing">
+          <span>Blacksmithing</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.enchanting}} name="enchanting">
+          <span>Enchanting</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.engineering}} name="engineering">
+          <span>Engineering</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.herbalism}} name="herbalism">
+          <span>Herbalism</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.inscription}} name="inscription">
+          <span>Inscription</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.jewelcrafting}} name="jewelcrafting">
+          <span>Jewelcrafting</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.leatherworking}} name="leatherworking">
+          <span>Leatherworking</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.mining}} name="mining">
+          <span>Mining</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.skinnig}} name="skinnig">
+          <span>Skinning</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" checked={{char.tailoring}} name="tailoring">
+          <span>Tailoring</span>
+        </label>
+      </div>
+      <button type="submit">Save</button>
     </form>
+    <a href="/chars/{{char._id}}">Back</a>
+
     {{else}}
     <p>The character you are trying to edit does not exist.</p>
     {{/if}}
   </main>
 
-    {{!-- TODO:
-    <script>
-      const markSelected = () => {
-        const charValue = {{{json char}}}
-        document.querySelector(`option[value='${charValue.faction}']`).selected = true;
+  {{!-- TODO:
+  <script>
+    const markSelected = () => {
+      const charValue = {{{ json char }
+    }}
+    document.querySelector(`option[value='${charValue.faction}']`).selected = true;
       }
-      window.onload = markSelected;
-    </script>
-     --}}
+    window.onload = markSelected;
+  </script>
+  --}}
 </body>
 
 </html>

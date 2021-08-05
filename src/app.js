@@ -66,5 +66,5 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is up in http://localhost:${PORT}.`);
+    console.log(`Server is up on http://localhost:${PORT}.`);
 });

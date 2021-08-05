@@ -6,18 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
-    <title>{{char.name}}</title>
+    <title>WoW Characters: {{char.name}}</title>
 </head>
 
 <body>
     <header>
-        <a href="/">Home</a>
-        <a href="/chars">Character list</a>
+        <div class="header-container">
+            {{#if char}}
+            <h1>{{char.name}}</h1>
+            {{/if}}
+            <nav>
+                <a href="/chars/" class="nav__link">Characters list</a>
+                <a href="/chars/new-char" class="nav__link">Add new character</a>
+                <a href="/auth/login" class="nav__link">Login</a>
+                <form action="/auth/logout" method="POST" class="nav__link">
+                    <button type="submit" value="Logout">Logout</button>
+                </form>
+            </nav>
+        </div>
     </header>
     <main class="char__container">
         <section>
             {{#if char}}
-            <h2>{{char.name}}</h2>
             <ul>
                 <li>Faction: {{char.faction}}</li>
                 <li>Race: {{char.race}}</li>

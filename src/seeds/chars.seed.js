@@ -98,7 +98,7 @@ const chars = [
     {
         name: 'Sisomeet',
         faction: 'Horde',
-        race: 'Zandalari troll',
+        race: 'zandalari troll',
         charClass: 'druid',
         level: 60,
         realm: "C'Thun",
@@ -160,7 +160,7 @@ const chars = [
     {
         name: 'Kuruudos',
         faction: 'Alliance',
-        race: 'Lightforged draenei',
+        race: 'lightforged draenei',
         charClass: 'paladin',
         level: 60,
         realm: "Los Errantes",
@@ -168,7 +168,7 @@ const chars = [
     {
         name: 'Raekhara',
         faction: 'Alliance',
-        race: 'Dark Iron dwarf',
+        race: 'dark iron dwarf',
         charClass: 'warlock',
         level: 50,
         realm: "Los Errantes",

@@ -6,95 +6,158 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles/style.css">
-  <title>Create new character</title>
+  <title>WoW Characters: Create new character</title>
 </head>
 
 <body>
   <header>
-    <h1>Create new character</h1>
-    <a href="/">Home</a>
-    <a href="/chars">Character list</a>
+    <div class="header-container">
+      <h1>Add new character</h1>
+      <nav>
+        <a href="/chars/" class="nav__link">Characters list</a>
+        <a href="/auth/login" class="nav__link">Login</a>
+        <form action="/auth/logout" method="POST" class="nav__link">
+          <button type="submit" value="Logout">Logout</button>
+        </form>
+      </nav>
+    </div>
   </header>
   <main>
     <form action="/chars/new-char" method="POST">
       <label>
         <p>Name</p>
-        <input type="text" name="name" placeholder="name">
+        <input type="text" name="name" placeholder="Name">
       </label>
       <label>
         <p>Faction</p>
-        <select name="faction" placeholder="faction">
+        <select name="faction" placeholder="Faction">
           <option value="Alliance">Alliance</option>
           <option value="Horde">Horde</option>
         </select>
       </label>
       <label>
         <p>Race</p>
-        <input type="text" name="race" placeholder="race">
+        <select name="race" placeholder="Race">
+          <option value="blood elf">Blood elf</option>
+          <option value="dark iron dwarf">Dark Iron dwarf</option>
+          <option value="draenei">Draenei</option>
+          <option value="dwarf">Dwarf</option>
+          <option value="gnome">Gnome</option>
+          <option value="goblin">Goblin</option>
+          <option value="highmountain tauren">Highmountain tauren</option>
+          <option value="kul tiran">Kul Tiran</option>
+          <option value="lightforged draenei">Lightforged draenei</option>
+          <option value="human">Human</option>
+          <option value="mag'har orc">Mag'har orc</option>
+          <option value="mechagnome">Mechagnome</option>
+          <option value="night elf">Night elf</option>
+          <option value="nightborne">Nightborne</option>
+          <option value="orc">Orc</option>
+          <option value="pandaren">Pandaren</option>
+          <option value="tauren">Tauren</option>
+          <option value="troll">Troll</option>
+          <option value="undead">Undead</option>
+          <option value="void elf">Void elf</option>
+          <option value="vulpera">Vulpera</option>
+          <option value="worgen">Worgen</option>
+          <option value="zandalari troll">Zandalari troll</option>
+        </select>
       </label>
       <label>
         <p>Class</p>
-        <input type="text" name="charClass" placeholder="class">
+        <select name="class" placeholder="Class">
+          <option value="death knight">Death knight</option>
+          <option value="demon hunter">Demon hunter</option>
+          <option value="druid">Druid</option>
+          <option value="hunter">Hunter</option>
+          <option value="mage">Mage</option>
+          <option value="monk">Monk</option>
+          <option value="paladin">Paladin</option>
+          <option value="priest">Priest</option>
+          <option value="rogue">Rogue</option>
+          <option value="shaman">Shaman</option>
+          <option value="warlock">Warlock</option>
+          <option value="warrior">Warrior</option>
+        </select>
       </label>
       <label>
         <p>Level</p>
-        <input type="number" name="level" placeholder="level">
+        <input type="number" name="level" placeholder="1 to 60">
       </label>
       <label>
         <p>Realm</p>
-        <input type="text" name="realm" placeholder="realm">
+        <input type="text" name="realm" placeholder="Realm">
       </label>
-      {{!-- TODO: Comprobar si esto aún está pendiente:
-      LAS PROFESIONES NO SE ESTÁN GUARDANDO BIEN PORQUE SE MANDAN COMO UNA PROPIEDAD DE CHAR EN VEZ DE DE
-      CHAR.PROFESSIONS
-      ADEMÁS, HAY QUE PONER UN TERNARIO EN LA PETICIÓN POST PARA CAMBIAR "ON" A TRUE. --}}
       <p>Professions:</p>
-      <label>
-        <p>Alchemy</p>
-        <input type="checkbox" name="alchemy">
-      </label>
-      <label>
-        <p>Blacksmithing</p>
-        <input type="checkbox" name="blacksmithing">
-      </label>
-      <label>
-        <p>Enchanting</p>
-        <input type="checkbox" name="enchanting">
-      </label>
-      <label>
-        <p>Engineering</p>
-        <input type="checkbox" name="engineering">
-      </label>
-      <label>
-        <p>Herbalism</p>
-        <input type="checkbox" name="herbalism">
-      </label>
-      <label>
-        <p>Inscription</p>
-        <input type="checkbox" name="inscription">
-      </label>
-      <label>
-        <p>Jewelcrafting</p>
-        <input type="checkbox" name="jewelcrafting">
-      </label>
-      <label>
-        <p>Leatherworking</p>
-        <input type="checkbox" name="leatherworking">
-      </label>
-      <label>
-        <p>Mining</p>
-        <input type="checkbox" name="mining">
-      </label>
-      <label>
-        <p>Skinning</p>
-        <input type="checkbox" name="skinning">
-      </label>
-      <label>
-        <p>Tailoring</p>
-        <input type="checkbox" name="tailoring">
-      </label>
+      <div>
+        <label>
+          <input type="checkbox" name="alchemy">
+          <span>Alchemy</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="blacksmithing">
+          <span>Blacksmithing</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="enchanting">
+          <span>Enchanting</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="engineering">
+          <span>Engineering</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="herbalism">
+          <span>Herbalism</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="inscription">
+          <span>Inscription</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="jewelcrafting">
+          <span>Jewelcrafting</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="leatherworking">
+          <span>Leatherworking</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="mining">
+          <span>Mining</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="skinnig">
+          <span>Skinning</span>
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" name="tailoring">
+          <span>Tailoring</span>
+        </label>
+      </div>
       <button type="submit">Create</button>
     </form>
+    <a href="/chars/">Back</a>
   </main>
 </body>
 
