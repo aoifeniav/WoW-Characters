@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Create new character</title>
+</head>
+
+<body>
+  <header>
+    <h1>Create new character</h1>
+    <a href="/">Home</a>
+    <a href="/chars">Character list</a>
+  </header>
+  <main>
+    <form action="/chars/new-char" method="POST">
+      <label>
+        <p>Name</p>
+        <input type="text" name="name" placeholder="name">
+      </label>
+      <label>
+        <p>Faction</p>
+        <select name="faction" placeholder="faction">
+          <option value="Alliance">Alliance</option>
+          <option value="Horde">Horde</option>
+        </select>
+      </label>
+      <label>
+        <p>Race</p>
+        <input type="text" name="race" placeholder="race">
+      </label>
+      <label>
+        <p>Class</p>
+        <input type="text" name="charClass" placeholder="class">
+      </label>
+      <label>
+        <p>Level</p>
+        <input type="number" name="level" placeholder="level">
+      </label>
+      <label>
+        <p>Realm</p>
+        <input type="text" name="realm" placeholder="realm">
+      </label>
+      {{!-- TODO: Comprobar si esto aún está pendiente:
+      LAS PROFESIONES NO SE ESTÁN GUARDANDO BIEN PORQUE SE MANDAN COMO UNA PROPIEDAD DE CHAR EN VEZ DE DE
+      CHAR.PROFESSIONS
+      ADEMÁS, HAY QUE PONER UN TERNARIO EN LA PETICIÓN POST PARA CAMBIAR "ON" A TRUE. --}}
+      <p>Professions:</p>
+      <label>
+        <p>Alchemy</p>
+        <input type="checkbox" name="alchemy">
+      </label>
+      <label>
+        <p>Blacksmithing</p>
+        <input type="checkbox" name="blacksmithing">
+      </label>
+      <label>
+        <p>Enchanting</p>
+        <input type="checkbox" name="enchanting">
+      </label>
+      <label>
+        <p>Engineering</p>
+        <input type="checkbox" name="engineering">
+      </label>
+      <label>
+        <p>Herbalism</p>
+        <input type="checkbox" name="herbalism">
+      </label>
+      <label>
+        <p>Inscription</p>
+        <input type="checkbox" name="inscription">
+      </label>
+      <label>
+        <p>Jewelcrafting</p>
+        <input type="checkbox" name="jewelcrafting">
+      </label>
+      <label>
+        <p>Leatherworking</p>
+        <input type="checkbox" name="leatherworking">
+      </label>
+      <label>
+        <p>Mining</p>
+        <input type="checkbox" name="mining">
+      </label>
+      <label>
+        <p>Skinning</p>
+        <input type="checkbox" name="skinning">
+      </label>
+      <label>
+        <p>Tailoring</p>
+        <input type="checkbox" name="tailoring">
+      </label>
+      <button type="submit">Create</button>
+    </form>
+  </main>
+</body>
+
+</html>

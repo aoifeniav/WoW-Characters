@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/style.css">
+  <title>Edit character</title>
+</head>
+
+<body>
+  <header>
+    <h1>Edit character</h1>
+    <a href="/">Home</a>
+    <a href="/chars">Character list</a>
+  </header>
+
+  {{#if char}}
+
+  <main>
+    <form action="/chars/edit-char/{{char._id}}?_method=PUT" method="POST">
+      <label>
+        <p>Name</p>
+        <input value="{{char.name}}" type="text" name="name" placeholder="name">
+      </label>
+      {{!-- TODO: Hay que configurar el script de abajo --}}
+      <label>
+        <p>Faction</p>
+        <select name="faction" placeholder="faction">
+          <option value="Alliance">Alliance</option>
+          <option value="Horde">Horde</option>
+        </select>
+      </label>
+      <label>
+        <p>Race</p>
+        <input value="{{char.race}}" type="text" name="race" placeholder="race">
+      </label>
+      <label>
+        <p>Class</p>
+        <input value="{{char.charClass}}" type="text" name="charClass" placeholder="class">
+      </label>
+      <label>
+        <p>Level</p>
+        <input value="{{char.level}}" type="number" name="level" placeholder="level">
+      </label>
+      <label>
+        <p>Realm</p>
+        <input value="{{char.realm}}" type="text" name="realm" placeholder="realm">
+      </label>
+      <p>Professions:</p>
+      {{!-- TODO: No funciona bien el checked --}}
+      <label>
+        <p>Alchemy</p>
+        <input type="checkbox" checked={{char.professions.alchemy}} name="alchemy">
+      </label>
+      <label>
+        <p>Blacksmithing</p>
+        <input type="checkbox" checked={{char.professions.blacksmithing}} name="blacksmithing">
+      </label>
+      <label>
+        <p>Enchanting</p>
+        <input type="checkbox" checked={{char.professions.enchanting}} name="enchanting">
+      </label>
+      <label>
+        <p>Engineering</p>
+        <input type="checkbox" checked={{char.professions.engineering}} name="engineering">
+      </label>
+      <label>
+        <p>Herbalism</p>
+        <input type="checkbox" checked={{char.professions.herbalism}} name="herbalism">
+      </label>
+      <label>
+        <p>Inscription</p>
+        <input type="checkbox" checked={{char.professions.nscription}} name="inscription">
+      </label>
+      <label>
+        <p>Jewelcrafting</p>
+        <input type="checkbox" checked={{char.professions.jewelcrafting}} name="jewelcrafting">
+      </label>
+      <label>
+        <p>Leatherworking</p>
+        <input type="checkbox" checked={{char.professions.leatherworking}} name="leatherworking">
+      </label>
+      <label>
+        <p>Mining</p>
+        <input type="checkbox" checked={{char.professions.mining}} name="mining">
+      </label>
+      <label>
+        <p>Skinning</p>
+        <input type="checkbox" checked={{char.professions.skinnig}} name="skinnig">
+      </label>
+      <label>
+        <p>Tailoring</p>
+        <input type="checkbox" checked={{char.professions.tailoring}} name="tailoring">
+      </label>
+      <button type="submit">Edit</button>
+    </form>
+    {{else}}
+    <p>The character you are trying to edit does not exist.</p>
+    {{/if}}
+  </main>
+
+    {{!-- TODO:
+    <script>
+      const markSelected = () => {
+        const charValue = {{{json char}}}
+        document.querySelector(`option[value='${charValue.faction}']`).selected = true;
+      }
+      window.onload = markSelected;
+    </script>
+     --}}
+</body>
+
+</html>

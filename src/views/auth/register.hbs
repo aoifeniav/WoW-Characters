@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>New user</title>
+</head>
+
+<body>
+    <header>
+        <h1>New user</h1>
+        <a href="/">Home</a>
+    </header>
+    <main>
+        <form action="/auth/register" method="POST">
+            <label>
+                <p>Username</p>
+                <input type="text" name="name">
+            </label>
+            <label>
+                <p>Email</p>
+                <input type="text" name="email">
+            </label>
+            <label>
+                <p>Password</p>
+                <input type="password" name="password">
+            </label>
+            <button type="submit">Register</button>
+        </form>
+    </main>
+</body>
+
+</html>
