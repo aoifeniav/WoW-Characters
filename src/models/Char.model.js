@@ -37,7 +37,7 @@ const charSchema = new Schema(
             skinning: { type: Boolean, default: false },
             tailoring: { type: Boolean, default: false }
         },
-        owner: { type: String }
+        owner: { type: mongoose.Types.ObjectId, ref: 'Users' }
     },
     { timestamps: true }
 );

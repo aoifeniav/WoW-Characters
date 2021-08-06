@@ -76,7 +76,7 @@
       </label>
       <label>
         <p>Class</p>
-        <select name="class" placeholder="Class">
+        <select name="charClass" placeholder="Class">
           <option value="death knight">Death knight</option>
           <option value="demon hunter">Demon hunter</option>
           <option value="druid">Druid</option>
@@ -167,6 +167,13 @@
           <span>Tailoring</span>
         </label>
       </div>
+      <div>
+        <label>
+          <p>Picture</p>
+          <input value="{{char.pic}}" type="text" name="pic" placeholder="Picture">
+        </label>
+      </div>
+
       <div class="btn__group">
         <button type="submit" class="btn--border">Save</button>
         <a href="/chars/{{char._id}}" class="btn--border">Return</a>

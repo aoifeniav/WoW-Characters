@@ -3,12 +3,10 @@
 @import "mixin";
 
 body {
+    @include font-reset;
     margin: 0;
     background-color: var(--color-bg);
     color: var(--color-text);
-    font-family: "Montserrat";
-    font-size: 14px;
-    font-weight: normal;
 }
 
 a {
@@ -27,8 +25,7 @@ button {
     border: none;
     cursor: pointer;
     color: var(--color-text);
-    font-family: "Montserrat";
-    font-size: 14px;
+    @include font-reset;
 }
 
 input {
@@ -51,4 +48,3 @@ option {
 @import "header";
 @import "auth";
 @import "characters";
-@import "forms";

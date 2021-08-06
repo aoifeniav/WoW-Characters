@@ -6,8 +6,7 @@ const userSchema = new Schema(
   {
     email: { type: String, required: true },
     password: { type: String, required: true },
-    name: { type: String, required: true },
-    chars: { type: Array },
+    chars: [{ type: mongoose.Types.ObjectId, ref: 'Characters' }],
     isAuth: { type: Boolean, required: true, default: false }
   },
   {
