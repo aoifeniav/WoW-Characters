@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Char = require('../models/Char.model');
-const db = require('../config/db.config.js');
+const db = require('../config/db.config');
 
 const chars = [
     {

@@ -55,7 +55,7 @@ router.post('/logout', (req, res, next) => {
 
         req.session.destroy(() => {
             res.clearCookie('connect.sid');
-            return res.redirect('/');
+            return res.redirect('/auth/login');
         });
     }
 });

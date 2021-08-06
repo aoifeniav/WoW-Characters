@@ -18,33 +18,56 @@
             <nav>
                 <a href="/chars/" class="nav__link">Characters list</a>
                 <a href="/chars/new-char" class="nav__link">Add new character</a>
-                <a href="/auth/login" class="nav__link">Login</a>
                 <form action="/auth/logout" method="POST" class="nav__link">
                     <button type="submit" value="Logout">Logout</button>
                 </form>
             </nav>
         </div>
     </header>
-    <main class="char__container">
-        <section>
-            {{#if char}}
-            <ul>
-                <li>Faction: {{char.faction}}</li>
-                <li>Race: {{char.race}}</li>
-                <li>Class: {{char.charClass}}</li>
-                <li>Level: {{char.level}}</li>
-                <li>Realm: {{char.realm}}</li>
-            </ul>
-            <a href="/chars/edit-char/{{char._id}}">
-                <button>Edit character</button>
-            </a>
-            <form action="/chars/{{char._id}}?_method=DELETE" method="POST">
-                <button type="submit">Delete character</button>
-            </form>
-            {{else}}
-            <p>The character you are looking for does not exist.</p>
-            {{/if}}
+    <main class="char__bg"
+        style="background-image: linear-gradient(rgba(22, 16, 12, 1), rgba(22, 16, 12, 0), rgba(22, 16, 12, 1)), url({{char.pic}})">
+        {{#if char}}
+        <section class="char__page">
+            <div class="char__data">
+                <div class="char__basic-info">
+                    <div class="char__basic-info--up">
+                        {{#ifEquals char.faction "Alliance"}}
+                        <img src="https://res.cloudinary.com/wowchars/image/upload/v1628240343/logo-alliance_garxe4.png"
+                            alt="Alliance character">
+                        {{/ifEquals}}
+                        {{#ifEquals char.faction "Horde"}}
+                        <img src="https://res.cloudinary.com/wowchars/image/upload/v1628240343/logo-horde_jn3k4f.png"
+                            alt="Horde character">
+                        {{/ifEquals}}
+                        <div>{{char.realm}}</div>
+                    </div>
+                    <div class="char__basic-info--down">
+                        <div>Lv {{char.level}}</div>
+                        <div>{{char.race}}</div>
+                        <div>{{char.charClass}}</div>
+                    </div>
+                </div>
+                <div class="char__professions">
+                    {{!-- TODO: --}}
+                    <ul>{{#each char.professions}}
+                        <li>{{char.[professions]}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            <div class="btn__group">
+                <a href="/chars/edit-char/{{char._id}}" class="btn--border">Edit</a>
+                <form action="/chars/{{char._id}}?_method=DELETE" method="POST">
+                    <button type="submit" class="btn--border">Delete</button>
+                </form>
+                <a href="/chars/" class="btn--border">Return</a>
+            </div>
         </section>
+
+        {{else}}
+        <p>The character you are looking for does not exist.</p>
+        {{/if}}
+
     </main>
 </body>
 

@@ -6,29 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
-    <title>New user</title>
+    <script src="https://kit.fontawesome.com/c4a8f670ae.js"></script>
+    <title>WoW Characters: New user</title>
 </head>
 
 <body>
     <header>
-        <h1>New user</h1>
-        <a href="/">Home</a>
+        <div class="header-container">
+            <h1>WoW Characters</h1>
+            <nav>
+                <span>Already have an account?<i class="fas fa-caret-right"></i>
+                    <a href="/auth/login" class="nav__link">Sign in</a></span>
+            </nav>
+        </div>
     </header>
     <main>
-        <form action="/auth/register" method="POST">
-            <label>
-                <p>Username</p>
-                <input type="text" name="name">
-            </label>
-            <label>
-                <p>Email</p>
-                <input type="text" name="email">
-            </label>
-            <label>
-                <p>Password</p>
-                <input type="password" name="password">
-            </label>
-            <button type="submit">Register</button>
+        <form action="/auth/register" method="POST" class="auth-form">
+            <p>Create an account to manage your World of Warcraft characters.</p>
+            <div>
+                <label>
+                    <p>User name</p>
+                    <input type="text" name="name">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <p>Email</p>
+                    <input type="text" name="email">
+                </label>
+            </div>
+            <div>
+                <label>
+                    <p>Password</p>
+                    <input type="password" name="password">
+                </label>
+            </div>
+            <button type="submit" class="btn--border">Create account</button>
         </form>
     </main>
 </body>

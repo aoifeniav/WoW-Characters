@@ -10,9 +10,21 @@
 </head>
 
 <body>
-    <h1>Error {{status}}! We found an error.</h1>
-    <a href="/">Home</a>
-    <h4>{{message}}</h4>
+    {{!-- TODO: Crear endpoint para la vista de error. --}}
+    <header>
+        <div class="header-container">
+            <h1>WoW Characters</h1>
+            <nav>
+                <span>Need an account?<i class="fas fa-caret-right"></i>
+                    <a href="/auth/register" class="nav__link">Sign up</a></span>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Error {{status}}! We found an error.</h1>
+        <h4>{{message}}</h4>
+        <a href="/">Login</a>
+    </main>
 </body>
 
 </html>

@@ -18,7 +18,6 @@
       <nav>
         <a href="/chars/" class="nav__link">Characters list</a>
         <a href="/chars/new-char" class="nav__link">Add new character</a>
-        <a href="/auth/login" class="nav__link">Login</a>
         <form action="/auth/logout" method="POST" class="nav__link">
           <button type="submit" value="Logout">Logout</button>
         </form>
@@ -45,29 +44,34 @@
       <label>
         <p>Race</p>
         <select name="race" placeholder="Race">
-          <option value="blood elf">Blood elf</option>
-          <option value="dark iron dwarf">Dark Iron dwarf</option>
-          <option value="draenei">Draenei</option>
-          <option value="dwarf">Dwarf</option>
-          <option value="gnome">Gnome</option>
-          <option value="goblin">Goblin</option>
-          <option value="highmountain tauren">Highmountain tauren</option>
-          <option value="kul tiran">Kul Tiran</option>
-          <option value="lightforged draenei">Lightforged draenei</option>
-          <option value="human">Human</option>
-          <option value="mag'har orc">Mag'har orc</option>
-          <option value="mechagnome">Mechagnome</option>
-          <option value="night elf">Night elf</option>
-          <option value="nightborne">Nightborne</option>
-          <option value="orc">Orc</option>
-          <option value="pandaren">Pandaren</option>
-          <option value="tauren">Tauren</option>
-          <option value="troll">Troll</option>
-          <option value="undead">Undead</option>
-          <option value="void elf">Void elf</option>
-          <option value="vulpera">Vulpera</option>
-          <option value="worgen">Worgen</option>
-          <option value="zandalari troll">Zandalari troll</option>
+          <optgroup label="Alliance">
+            <option value="dark iron dwarf">Dark Iron dwarf</option>
+            <option value="draenei">Draenei</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="gnome">Gnome</option>
+            <option value="kul tiran">Kul Tiran</option>
+            <option value="lightforged draenei">Lightforged draenei</option>
+            <option value="human">Human</option>
+            <option value="mechagnome">Mechagnome</option>
+            <option value="night elf">Night elf</option>
+            <option value="pandaren">Pandaren</option>
+            <option value="void elf">Void elf</option>
+            <option value="worgen">Worgen</option>
+          </optgroup>
+          <optgroup label="Horde">
+            <option value="blood elf">Blood elf</option>
+            <option value="goblin">Goblin</option>
+            <option value="highmountain tauren">Highmountain tauren</option>
+            <option value="mag'har orc">Mag'har orc</option>
+            <option value="nightborne">Nightborne</option>
+            <option value="orc">Orc</option>
+            <option value="pandaren">Pandaren</option>
+            <option value="tauren">Tauren</option>
+            <option value="troll">Troll</option>
+            <option value="undead">Undead</option>
+            <option value="vulpera">Vulpera</option>
+            <option value="zandalari troll">Zandalari troll</option>
+          </optgroup>
         </select>
       </label>
       <label>
@@ -89,7 +93,7 @@
       </label>
       <label>
         <p>Level</p>
-        <input value="{{char.level}}" type="number" name="level" placeholder="Level">
+        <input value="{{char.level}}" type="number" name="level" min="1" max="60" placeholder="Level">
       </label>
       <label>
         <p>Realm</p>
@@ -163,9 +167,11 @@
           <span>Tailoring</span>
         </label>
       </div>
-      <button type="submit">Save</button>
+      <div class="btn__group">
+        <button type="submit" class="btn--border">Save</button>
+        <a href="/chars/{{char._id}}" class="btn--border">Return</a>
+      </div>
     </form>
-    <a href="/chars/{{char._id}}">Back</a>
 
     {{else}}
     <p>The character you are trying to edit does not exist.</p>

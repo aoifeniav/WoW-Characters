@@ -1,4 +1,4 @@
-.char {
+.chars {
     &__container {
         margin: 0 auto;
         max-width: 1100px;
@@ -43,6 +43,46 @@
         & div {
             margin-right: 5px;
             text-transform: uppercase;
+        }
+    }
+}
+
+.char {
+    &__bg {
+        background-repeat: no-repeat;
+        background-position: center 60%;
+    }
+
+    &__page {
+        margin: 0 auto;
+        height: 600px;
+        width: 800px;
+        text-transform: uppercase;
+    }
+
+    &__data {
+        width: 500px;
+        height: 100%;
+        box-sizing: border-box;
+        padding-bottom: 150px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__basic-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &--up {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            & img {
+                width: 100px;
+                margin-bottom: 10px;
+            }
         }
     }
 }

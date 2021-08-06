@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles/style.css">
-  <title>WoW Characters: Create new character</title>
+  <title>WoW Characters: New character</title>
 </head>
 
 <body>
@@ -15,7 +15,6 @@
       <h1>Add new character</h1>
       <nav>
         <a href="/chars/" class="nav__link">Characters list</a>
-        <a href="/auth/login" class="nav__link">Login</a>
         <form action="/auth/logout" method="POST" class="nav__link">
           <button type="submit" value="Logout">Logout</button>
         </form>
@@ -26,7 +25,7 @@
     <form action="/chars/new-char" method="POST">
       <label>
         <p>Name</p>
-        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="name" placeholder="Your character's name">
       </label>
       <label>
         <p>Faction</p>
@@ -38,29 +37,34 @@
       <label>
         <p>Race</p>
         <select name="race" placeholder="Race">
-          <option value="blood elf">Blood elf</option>
-          <option value="dark iron dwarf">Dark Iron dwarf</option>
-          <option value="draenei">Draenei</option>
-          <option value="dwarf">Dwarf</option>
-          <option value="gnome">Gnome</option>
-          <option value="goblin">Goblin</option>
-          <option value="highmountain tauren">Highmountain tauren</option>
-          <option value="kul tiran">Kul Tiran</option>
-          <option value="lightforged draenei">Lightforged draenei</option>
-          <option value="human">Human</option>
-          <option value="mag'har orc">Mag'har orc</option>
-          <option value="mechagnome">Mechagnome</option>
-          <option value="night elf">Night elf</option>
-          <option value="nightborne">Nightborne</option>
-          <option value="orc">Orc</option>
-          <option value="pandaren">Pandaren</option>
-          <option value="tauren">Tauren</option>
-          <option value="troll">Troll</option>
-          <option value="undead">Undead</option>
-          <option value="void elf">Void elf</option>
-          <option value="vulpera">Vulpera</option>
-          <option value="worgen">Worgen</option>
-          <option value="zandalari troll">Zandalari troll</option>
+          <optgroup label="Alliance">
+            <option value="dark iron dwarf">Dark Iron dwarf</option>
+            <option value="draenei">Draenei</option>
+            <option value="dwarf">Dwarf</option>
+            <option value="gnome">Gnome</option>
+            <option value="kul tiran">Kul Tiran</option>
+            <option value="lightforged draenei">Lightforged draenei</option>
+            <option value="human">Human</option>
+            <option value="mechagnome">Mechagnome</option>
+            <option value="night elf">Night elf</option>
+            <option value="pandaren">Pandaren</option>
+            <option value="void elf">Void elf</option>
+            <option value="worgen">Worgen</option>
+          </optgroup>
+          <optgroup label="Horde">
+            <option value="blood elf">Blood elf</option>
+            <option value="goblin">Goblin</option>
+            <option value="highmountain tauren">Highmountain tauren</option>
+            <option value="mag'har orc">Mag'har orc</option>
+            <option value="nightborne">Nightborne</option>
+            <option value="orc">Orc</option>
+            <option value="pandaren">Pandaren</option>
+            <option value="tauren">Tauren</option>
+            <option value="troll">Troll</option>
+            <option value="undead">Undead</option>
+            <option value="vulpera">Vulpera</option>
+            <option value="zandalari troll">Zandalari troll</option>
+          </optgroup>
         </select>
       </label>
       <label>
@@ -82,11 +86,11 @@
       </label>
       <label>
         <p>Level</p>
-        <input type="number" name="level" placeholder="1 to 60">
+        <input type="number" name="level" min="1" max="60" placeholder="1 to 60">
       </label>
       <label>
         <p>Realm</p>
-        <input type="text" name="realm" placeholder="Realm">
+        <input type="text" name="realm" placeholder="Your character's realm">
       </label>
       <p>Professions:</p>
       <div>
@@ -155,9 +159,12 @@
           <span>Tailoring</span>
         </label>
       </div>
-      <button type="submit">Create</button>
+      <div class="btn__group">
+        <button type="submit" class="btn--border">Create</button>
+        <a href="/chars/" class="btn--border">Return</a>
+      </div>
     </form>
-    <a href="/chars/">Back</a>
+
   </main>
 </body>
 

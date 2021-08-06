@@ -1,5 +1,4 @@
 const express = require('express');
-const hbsHelpers = require('../config/hbs.config');
 const multerUpload = require('../middlewares/files.middleware');
 const uploadToCloudinary = require('../middlewares/files.middleware');
 const Char = require('../models/Char.model');

@@ -1,5 +1,6 @@
 @import "fonts";
 @import "variables";
+@import "mixin";
 
 body {
     margin: 0;
@@ -30,6 +31,24 @@ button {
     font-size: 14px;
 }
 
+input {
+    @include form;
+    background: transparent;
+}
+
+select {
+    @include form;
+    background: transparent;
+}
+
+optgroup,
+option {
+    @include form;
+    background: var(--color-bg);
+}
+
+@import "buttons";
 @import "header";
+@import "auth";
 @import "characters";
 @import "forms";

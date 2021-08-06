@@ -48,6 +48,62 @@ button {
   font-size: 14px;
 }
 
+input {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid var(--color-dark);
+  width: 400px;
+  padding: 15px;
+  color: var(--color-text);
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 14px;
+  background: transparent;
+}
+
+select {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid var(--color-dark);
+  width: 400px;
+  padding: 15px;
+  color: var(--color-text);
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 14px;
+  background: transparent;
+}
+
+optgroup,
+option {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid var(--color-dark);
+  width: 400px;
+  padding: 15px;
+  color: var(--color-text);
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-size: 14px;
+  background: var(--color-bg);
+}
+
+.btn__group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn--border {
+  border: 1px solid var(--color-dark);
+  margin: 0 30px;
+  padding: 10px 20px;
+  text-transform: uppercase;
+}
+
 header {
   width: 100%;
   border-bottom: 1px solid var(--color-dark);
@@ -57,6 +113,10 @@ header {
 header h1 {
   margin: 0;
   display: block;
+}
+
+header .fas {
+  margin-left: 10px;
 }
 
 .header-container {
@@ -83,7 +143,24 @@ header h1 {
   margin-left: 20px;
 }
 
-.char__container {
+.auth-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.auth-form div {
+  margin-bottom: 40px;
+}
+
+.chars__container {
   margin: 0 auto;
   max-width: 1100px;
   display: -webkit-box;
@@ -96,7 +173,7 @@ header h1 {
           justify-content: center;
 }
 
-.char__card {
+.chars__card {
   min-width: 300px;
   max-width: 300px;
   height: 200px;
@@ -117,7 +194,7 @@ header h1 {
   background-position: 45% 45%;
 }
 
-.char__up-group {
+.chars__up-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,11 +203,11 @@ header h1 {
           justify-content: space-between;
 }
 
-.char__name {
+.chars__name {
   line-height: 0;
 }
 
-.char__icons-group {
+.chars__icons-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -139,12 +216,69 @@ header h1 {
           align-items: center;
 }
 
-.char__icon {
+.chars__icon {
   margin-left: 15px;
 }
 
-.char__down-group div {
+.chars__down-group div {
   margin-right: 5px;
   text-transform: uppercase;
+}
+
+.char__bg {
+  background-repeat: no-repeat;
+  background-position: center 60%;
+}
+
+.char__page {
+  margin: 0 auto;
+  height: 600px;
+  width: 800px;
+  text-transform: uppercase;
+}
+
+.char__data {
+  width: 500px;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.char__basic-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.char__basic-info--up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.char__basic-info--up img {
+  width: 100px;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */

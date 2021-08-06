@@ -13,11 +13,13 @@ const authRoutes = require('./routes/Auth.routes');
 const charsRoutes = require('./routes/Char.routes');
 const guildsRoutes = require('./routes/Guild.routes');
 
-const db = require('./config/db.config.js');
+const db = require('./config/db.config');
 const auth = require('./auth');
+const hbs = require('./config/hbs.config');
 
 db.connect();
 auth.setStrategies();
+hbs.hbsHelpers();
 
 const PORT = process.env.PORT || 3000;
 const app = express();
