@@ -16,9 +16,10 @@ Database:
 Views:
 - hbs
 
-Uploading images:
+Image uploading:
 - multer
 - cloudinary
+- streamifier
 
 Authentication:
 - passport
@@ -29,3 +30,4 @@ Authentication:
 
 ## Resources
 - Font icons: https://fontawesome.com/
+- Alliance & Horde emblems: https://worldofwarcraft.com/en-gb/game/races
