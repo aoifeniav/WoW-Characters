@@ -7,10 +7,14 @@
         justify-content: center;
     }
 
+    &__noCharsMsg {
+        text-align: center;
+    }
+
     &__card {
         min-width: 300px;
         max-width: 300px;
-        height: 200px;
+        height: 100px;
         border: 1px solid var(--color-dark);
         margin: 15px;
         padding: 15px;
@@ -18,7 +22,7 @@
         flex-direction: column;
         justify-content: space-between;
         background-repeat: no-repeat;
-        background-position: 45% 45%;
+        background-position: 45% 46%;
     }
 
     &__up-group {

@@ -1,33 +1,40 @@
-//  TODO: Implantar Multer y Cloudinary.
+// TODO: Implantar Multer y Cloudinary.
 const multerUpload = require('../middlewares/files.middleware');
 const uploadToCloudinary = require('../middlewares/files.middleware');
 const Char = require('../models/Char.model');
+const User = require('../models/User.model');
 
 const charListGet = async (req, res, next) => {
     try {
-        const chars = await Char.find();
-        return res.status(200).render('./chars/char-list', { chars });
+        const chars = await Char.find({ owner: req.user._id });
+        return res.status(200).render('./chars/char-list', { chars, user: req.user });
     } catch (error) {
         next(error);
     }
 };
 
 const newCharGet = async (req, res, next) => {
-    return res.status(200).render("./chars/new-char");
+    return res.status(200).render('./chars/new-char', { user: req.user });
 };
 
 const newCharPost = async (req, res, next) => {
     try {
-        const { name, faction, race, charClass, level, realm, pic, ...professions } = req.body;
+        const { name, faction, race, charClass, level, realm, pic, owner, ...professions } = req.body;
 
         for (let profession in professions) {
             professions[profession] = professions[profession] === 'on' ? true : false;
         }
 
-        const characterData = { name, faction, race, charClass, level, realm, pic: req.fileUrl, professions }
-
+        const characterData = { name, faction, race, charClass, level, realm, pic: req.picUrl, owner, professions }
         const newChar = new Char(characterData);
         const createdChar = await newChar.save();
+
+        await User.findByIdAndUpdate(
+            req.user._id,
+            { $addToSet: { chars: createdChar._id } },
+            { new: true }
+        );
+
         return res.redirect(`/chars/${createdChar._id}`);
     } catch (error) {
         return next(error);
@@ -53,9 +60,13 @@ const editCharPut = async (req, res, next) => {
             professions[profession] = professions[profession] === 'on' ? true : false;
         }
 
-        const characterData = { name, faction, race, charClass, level, realm, pic, professions }
+        const characterData = { name, faction, race, charClass, level, realm, professions }
 
-        const updatedChar = await Char.findOneAndUpdate(
+        if (req.picUrl) {
+            characterData.pic = req.picUrl;
+        }
+
+        await Char.findOneAndUpdate(
             { _id: id },
             characterData,
             { new: true }
@@ -92,6 +103,13 @@ const charDelete = async (req, res, next) => {
 
     try {
         const deleted = await Char.findByIdAndDelete(id);
+
+        await User.findByIdAndUpdate(
+            req.user._id,
+            { $pull: { chars: id } },
+            { new: true }
+        );
+
         if (!deleted) {
             return res.status(404).json('The character you are trying to delete does not exist.')
         } else {

@@ -31,7 +31,7 @@ const charsByQuery = async (req, res, next) => {
         // La expresión regular de Mongoose de realm es para buscarlo sin ser case sensitive.
         if (race) query.race = race;
         if (level) query.level = level;
-        if (realm) query.realm = { $regex: new RegExp("^" + realm.toLowerCase(), "i") };
+        if (realm) query.realm = { $regex: new RegExp('^' + realm.toLowerCase(), 'i') };
 
         const filtered = await Char.find(query);
 

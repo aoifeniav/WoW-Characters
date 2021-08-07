@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
+const authMiddleware = require('./middlewares/auth.middleware');
 
 const rootRoutes = require('./routes/Root.routes');
 const authRoutes = require('./routes/Auth.routes');
@@ -18,8 +19,6 @@ const auth = require('./auth');
 const hbs = require('./config/hbs.config');
 
 db.connect();
-auth.setStrategies();
-hbs.hbsHelpers();
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -32,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Configuración de Handlebars.
+hbs.hbsHelpers();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
@@ -39,6 +39,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Configuración de la autenticación.
+auth.setStrategies();
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
@@ -54,8 +55,8 @@ app.use(passport.session());
 // Gestión de rutas.
 app.use('/', rootRoutes);
 app.use('/auth', authRoutes);
-app.use('/chars', charsRoutes);
-app.use('/guild', guildsRoutes);
+app.use('/chars', authMiddleware.isAuth, charsRoutes);
+app.use('/guild', authMiddleware.isAuth, guildsRoutes);
 app.use('*', (req, res, next) => {
     const error = new Error('Rout not found.');
     return res.status(404).json(error.message);

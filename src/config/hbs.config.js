@@ -1,16 +1,17 @@
 const hbs = require('hbs');
-const mongoose = require('mongoose');
 
 const hbsHelpers = () => {
     try {
-        hbs.registerHelper('ifEquals', (charData, desiredData, opts) => {
-            return (charData == desiredData) ? opts.fn(this) : opts.inverse(this);
+        hbs.registerHelper('ifEquals', function(data, desiredData, opts) {
+            return (data == desiredData) ? opts.fn(this) : opts.inverse(this);
         });
 
-        // TODO:
-        hbs.registerHelper('profCount', (professions) => professions.length);
+        hbs.registerHelper('arrayIsEmpty', function(data, desiredData, opts) {
+            return (data.length == 0) ? opts.fn(this) : opts.inverse(this);
+        });
 
-        hbs.registerHelper('json', (content) => JSON.stringify(content));
+        // TODO: Probar
+        hbs.registerHelper('arrayLength', (array) => array.length);
     } catch (error) {
         return next(error);
     }

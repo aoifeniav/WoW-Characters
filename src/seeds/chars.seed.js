@@ -13,7 +13,8 @@ const chars = [
         professions: {
             leatherworking: true,
             skinning: true,
-        }
+        },
+        owner: '610e5c09c7ebe337743b21d2'
     },
     {
         name: 'Zekogs',
@@ -25,7 +26,9 @@ const chars = [
         professions: {
             herbalism: true,
             mining: true,
-        }
+        },
+        owner: '610e5c09c7ebe337743b21d2'
+
     },
     {
         name: 'Galeshra',
@@ -37,7 +40,9 @@ const chars = [
         professions: {
             alchemy: true,
             tailoring: true,
-        }
+        },
+        owner: '610e5c09c7ebe337743b21d2'
+
     },
     {
         name: 'Anasthore',
@@ -73,7 +78,9 @@ const chars = [
         professions: {
             blacksmithing: true,
             engineering: true,
-        }
+        },
+        owner: '610e5c09c7ebe337743b21d2'
+
     },
     {
         name: 'Gibraelyn',
@@ -94,6 +101,7 @@ const chars = [
         charClass: 'warrior',
         level: 52,
         realm: "C'Thun",
+        owner: '610e5c09c7ebe337743b21d2'
     },
     {
         name: 'Sisomeet',
@@ -120,7 +128,9 @@ const chars = [
         realm: "C'Thun",
         professions: {
             enchanting: true,
-        }
+        },
+        owner: '610e5c09c7ebe337743b21d2'
+
     },
     {
         name: 'Xingtian',
@@ -129,6 +139,7 @@ const chars = [
         charClass: 'hunter',
         level: 44,
         realm: "C'Thun",
+        owner: '610e5c09c7ebe337743b21d2'
     },
     {
         name: 'Ereyaad',
@@ -202,7 +213,7 @@ mongoose
         if (allChars.length) {
             console.log(`[FIND] ${allChars.length} characters found.`);
             await Char.collection.drop();
-            console.log("[DELETE] Collection deleted.");
+            console.log('[DELETE] Collection deleted.');
         } else {
             console.log('[FIND] No characters were found.')
         }

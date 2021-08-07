@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="char__professions">
-                    {{!-- TODO: --}}
+                    {{!-- TODO: Mostrar las professions en la vista de personaje --}}
                     <ul>{{#each char.professions}}
                         <li>{{char.[professions]}}</li>
                         {{/each}}
@@ -56,11 +56,11 @@
                 </div>
             </div>
             <div class="btn__group">
+                <a href="/chars/" class="btn--border">Return</a>
                 <a href="/chars/edit-char/{{char._id}}" class="btn--border">Edit</a>
                 <form action="/chars/{{char._id}}?_method=DELETE" method="POST">
                     <button type="submit" class="btn--border">Delete</button>
                 </form>
-                <a href="/chars/" class="btn--border">Return</a>
             </div>
         </section>
 

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    {{!-- TODO: Partials --}}
     <header>
         <div class="header-container">
             <h1>Your characters</h1>
@@ -23,9 +24,16 @@
         </div>
     </header>
     <main class="chars__container">
+        {{#ifEquals user.chars.length 0}}
+        <div class="chars__noCharsMsg">
+            <p>You have no characters in your account.</p>
+            <p>Click on "Add new character" to create your first character.</p>
+        </div>
+        {{/ifEquals}}
+
         {{#each chars}}
         <div class="chars__card"
-            style="background-image: linear-gradient(145deg, rgba(22, 16, 12, 1), rgba(22, 16, 12, 0.50)), url({{pic}})">
+            style="background-image: linear-gradient(145deg, rgba(22, 16, 12, 0.80), rgba(22, 16, 12, 0)), url({{pic}})">
             <div class="chars__up-group">
                 <h2 class="chars__name">{{name}}</h2>
                 <div class="chars__icons-group">
