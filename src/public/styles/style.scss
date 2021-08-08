@@ -31,6 +31,10 @@ button {
 input {
     @include form;
     background: transparent;
+
+    &[type="checkbox"] {
+        width: auto;
+    }
 }
 
 select {

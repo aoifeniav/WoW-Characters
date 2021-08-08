@@ -56,10 +56,14 @@ input {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid var(--color-dark);
-  width: 400px;
+  width: 300px;
   padding: 15px;
   color: var(--color-text);
   background: transparent;
+}
+
+input[type="checkbox"] {
+  width: auto;
 }
 
 select {
@@ -69,7 +73,7 @@ select {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid var(--color-dark);
-  width: 400px;
+  width: 300px;
   padding: 15px;
   color: var(--color-text);
   background: transparent;
@@ -83,7 +87,7 @@ option {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border: 1px solid var(--color-dark);
-  width: 400px;
+  width: 300px;
   padding: 15px;
   color: var(--color-text);
   background: var(--color-bg);
@@ -96,6 +100,7 @@ option {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 30px;
 }
 
 .btn--border {
@@ -145,6 +150,8 @@ header .fas {
 }
 
 .form {
+  width: 380px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,8 +164,23 @@ header .fas {
           align-items: center;
 }
 
-.form__my {
-  margin-bottom: 40px;
+.form > label {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.form__professions {
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .chars__container {
@@ -197,7 +219,7 @@ header .fas {
           justify-content: space-between;
   background-repeat: no-repeat;
   background-size: 1300px;
-  background-position: 42% 48%;
+  background-position: 46% 48%;
 }
 
 .chars__up-group {

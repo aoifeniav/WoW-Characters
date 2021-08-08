@@ -14,8 +14,6 @@ const registerPost = (req, res, next) => {
             if (error) {
                 return next(error);
             };
-            console.log('User registered:', user);
-
             return res.redirect('/chars');
         });
     }
@@ -37,8 +35,6 @@ const loginPost = (req, res, next) => {
             if (error) {
                 return next(error);
             };
-            console.log('User logged in:', user);
-
             return res.redirect('/chars');
         });
     };

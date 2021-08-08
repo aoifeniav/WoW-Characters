@@ -98,80 +98,79 @@
         <p>Realm</p>
         <input value="{{char.realm}}" type="text" name="realm" placeholder="Realm">
       </label>
-      <p>Professions:</p>
-      {{!-- TODO: No funciona bien el checked --}}
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.alchemy}} checked {{/if}} name="alchemy">
-          <span>Alchemy</span>
-        </label>
+      <div class="form__professions">
+        <p>Professions:</p>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.alchemy}} checked {{/if}} name="alchemy">
+            <span>Alchemy</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.blacksmithing}} checked {{/if}} name="blacksmithing">
+            <span>Blacksmithing</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.enchanting}} checked {{/if}} name="enchanting">
+            <span>Enchanting</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.engineering}} checked {{/if}} name="engineering">
+            <span>Engineering</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.herbalism}} checked {{/if}} name="herbalism">
+            <span>Herbalism</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.inscription}} checked {{/if}} name="inscription">
+            <span>Inscription</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.jewelcrafting}} checked {{/if}} name="jewelcrafting">
+            <span>Jewelcrafting</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.leatherworking}} checked {{/if}} name="leatherworking">
+            <span>Leatherworking</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.mining}} checked {{/if}} name="mining">
+            <span>Mining</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.skinning}} checked {{/if}} name="skinning">
+            <span>Skinning</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" {{#if char.professions.tailoring}} checked {{/if}} name="tailoring">
+            <span>Tailoring</span>
+          </label>
+        </div>
       </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.blacksmithing}} checked {{/if}} name="blacksmithing">
-          <span>Blacksmithing</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.enchanting}} checked {{/if}} name="enchanting">
-          <span>Enchanting</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.engineering}} checked {{/if}} name="engineering">
-          <span>Engineering</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.herbalism}} checked {{/if}} name="herbalism">
-          <span>Herbalism</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.inscription}} checked {{/if}} name="inscription">
-          <span>Inscription</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.jewelcrafting}} checked {{/if}} name="jewelcrafting">
-          <span>Jewelcrafting</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.leatherworking}} checked {{/if}} name="leatherworking">
-          <span>Leatherworking</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.mining}} checked {{/if}} name="mining">
-          <span>Mining</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.skinning}} checked {{/if}} name="skinning">
-          <span>Skinning</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" {{#if char.professions.tailoring}} checked {{/if}} name="tailoring">
-          <span>Tailoring</span>
-        </label>
-      </div>
-      <div>
         <label>
           <p>Picture</p>
           <input type="file" name="pic">
         </label>
-      </div>
 
       <div class="btn__group">
         <a href="/chars/{{char._id}}" class="btn--border">Return</a>

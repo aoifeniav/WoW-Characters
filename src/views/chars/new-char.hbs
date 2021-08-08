@@ -25,20 +25,20 @@
     <form action="/chars/new-char" method="POST" enctype="multipart/form-data" class="form">
       <label>
         <input type="hidden" name="owner" value="{{user._id}}">
-        </label>
+      </label>
       <label>
-        <p>Name</p>
+        <span>Name</span>
         <input type="text" name="name" placeholder="Your character's name">
       </label>
       <label>
-        <p>Faction</p>
+        <span>Faction</span>
         <select name="faction" placeholder="Faction">
           <option value="Alliance">Alliance</option>
           <option value="Horde">Horde</option>
         </select>
       </label>
       <label>
-        <p>Race</p>
+        <span>Race</span>
         <select name="race" placeholder="Race">
           <optgroup label="Alliance">
             <option value="dark iron dwarf">Dark Iron dwarf</option>
@@ -71,7 +71,7 @@
         </select>
       </label>
       <label>
-        <p>Class</p>
+        <span>Class</span>
         <select name="charClass" placeholder="Class">
           <option value="death knight">Death knight</option>
           <option value="demon hunter">Demon hunter</option>
@@ -88,86 +88,86 @@
         </select>
       </label>
       <label>
-        <p>Level</p>
+        <span>Level</span>
         <input type="number" name="level" min="1" max="60" placeholder="1 to 60">
       </label>
       <label>
-        <p>Realm</p>
+        <span>Realm</span>
         <input type="text" name="realm" placeholder="Your character's realm">
       </label>
-      <p>Professions:</p>
-      <div>
-        <label>
-          <input type="checkbox" name="alchemy">
-          <span>Alchemy</span>
-        </label>
+      <div class="form__professions">
+        <p>Professions</p>
+        <div>
+          <label>
+            <input type="checkbox" name="alchemy">
+            <span>Alchemy</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="blacksmithing">
+            <span>Blacksmithing</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="enchanting">
+            <span>Enchanting</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="engineering">
+            <span>Engineering</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="herbalism">
+            <span>Herbalism</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="inscription">
+            <span>Inscription</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="jewelcrafting">
+            <span>Jewelcrafting</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="leatherworking">
+            <span>Leatherworking</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="mining">
+            <span>Mining</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="skinning">
+            <span>Skinning</span>
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="checkbox" name="tailoring">
+            <span>Tailoring</span>
+          </label>
+        </div>
       </div>
-      <div>
-        <label>
-          <input type="checkbox" name="blacksmithing">
-          <span>Blacksmithing</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="enchanting">
-          <span>Enchanting</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="engineering">
-          <span>Engineering</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="herbalism">
-          <span>Herbalism</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="inscription">
-          <span>Inscription</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="jewelcrafting">
-          <span>Jewelcrafting</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="leatherworking">
-          <span>Leatherworking</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="mining">
-          <span>Mining</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="skinning">
-          <span>Skinning</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox" name="tailoring">
-          <span>Tailoring</span>
-        </label>
-      </div>
-      <div>
-        <label>
-          <p>Picture</p>
-          <input type="file" name="pic">
-        </label>
-      </div>
+      <label>
+        <span>Picture</span>
+        <input type="file" name="pic">
+      </label>
       <div class="btn__group">
         <a href="/chars/" class="btn--border">Return</a>
         <button type="submit" class="btn--border">Create</button>
