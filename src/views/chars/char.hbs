@@ -25,17 +25,17 @@
         </div>
     </header>
     <main class="char__bg"
-        style="background-image: linear-gradient(rgba(22, 16, 12, 1), rgba(22, 16, 12, 0), rgba(22, 16, 12, 1)), url({{char.pic}})">
+        style="background-image: linear-gradient(rgba(22, 16, 12, 1) 0%, rgba(22, 16, 12, 0) 15%, rgba(22, 16, 12, 0) 85%, rgba(22, 16, 12, 1) 100%), url({{char.pic}})">
         {{#if char}}
         <section class="char__page">
             <div class="char__data">
                 <div class="char__basic-info">
                     <div class="char__basic-info--up">
-                        {{#ifEquals char.faction "Alliance"}}
+                        {{#ifEquals char.faction 'Alliance'}}
                         <img src="https://res.cloudinary.com/wowchars/image/upload/v1628240343/logo-alliance_garxe4.png"
                             alt="Alliance character">
                         {{/ifEquals}}
-                        {{#ifEquals char.faction "Horde"}}
+                        {{#ifEquals char.faction 'Horde'}}
                         <img src="https://res.cloudinary.com/wowchars/image/upload/v1628240343/logo-horde_jn3k4f.png"
                             alt="Horde character">
                         {{/ifEquals}}
