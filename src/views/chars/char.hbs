@@ -48,11 +48,13 @@
                     </div>
                 </div>
                 <div class="char__professions">
-                    {{!-- TODO: Mostrar las professions en la vista de personaje --}}
-                    <ul>{{#each char.professions}}
-                        <li>{{char.[professions]}}</li>
-                        {{/each}}
-                    </ul>
+                    <span>Professions:</span>
+                    {{#ifEquals professions.length 0}}
+                    <span>None</span>
+                    {{/ifEquals}}
+                    {{#each professions}}
+                    <span>{{this}}</span>
+                    {{/each}}
                 </div>
             </div>
             <div class="btn__group">

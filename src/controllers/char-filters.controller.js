@@ -1,11 +1,10 @@
 const Char = require('../models/Char.model');
 
-// TODO: Hay que utilizar una regex para que la búsqueda funcione con minúsculas.
 const charsByRealm = async (req, res, next) => {
     const { charRealm } = req.params;
 
     try {
-        const charsByRealm = await Char.find({ realm: charRealm });
+        const charsByRealm = await Char.find({ owner: req.user._id, realm: { $regex: new RegExp('^' + charRealm.toLowerCase(), 'i') } });
         return res.status(200).json(charsByRealm);
     } catch (error) {
         next(error);
@@ -16,7 +15,7 @@ const charsByLevel = async (req, res, next) => {
     const { charLevel } = req.params;
 
     try {
-        const charsByLevel = await Char.find({ level: { $gte: charLevel } });
+        const charsByLevel = await Char.find({ owner: req.user._id, level: { $gte: charLevel } });
         return res.status(200).json(charsByLevel);
     } catch (error) {
         next(error);
@@ -26,9 +25,8 @@ const charsByLevel = async (req, res, next) => {
 const charsByQuery = async (req, res, next) => {
     try {
         const { race, level, realm } = req.query;
-        const query = {};
+        const query = { owner: req.user._id };
 
-        // La expresión regular de Mongoose de realm es para buscarlo sin ser case sensitive.
         if (race) query.race = race;
         if (level) query.level = level;
         if (realm) query.realm = { $regex: new RegExp('^' + realm.toLowerCase(), 'i') };

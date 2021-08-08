@@ -144,7 +144,7 @@ header .fas {
   margin-left: 20px;
 }
 
-.auth-form {
+.form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -157,7 +157,7 @@ header .fas {
           align-items: center;
 }
 
-.auth-form div {
+.form__my {
   margin-bottom: 40px;
 }
 
@@ -196,7 +196,8 @@ header .fas {
       -ms-flex-pack: justify;
           justify-content: space-between;
   background-repeat: no-repeat;
-  background-position: 45% 46%;
+  background-size: 1100px;
+  background-position: 42% 48%;
 }
 
 .chars__up-group {
@@ -243,7 +244,7 @@ header .fas {
 }
 
 .char__data {
-  width: 500px;
+  width: 100%;
   height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -285,5 +286,23 @@ header .fas {
 .char__basic-info--up img {
   width: 100px;
   margin-bottom: 10px;
+}
+
+.char__professions {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.char__professions span:first-of-type {
+  margin-bottom: 10px;
+}
+
+.char__professions span {
+  display: block;
+}
+
+.char__professions ul {
+  padding: 0;
+  list-style: none;
 }
 /*# sourceMappingURL=style.css.map */

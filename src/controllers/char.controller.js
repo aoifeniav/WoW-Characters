@@ -1,4 +1,3 @@
-// TODO: Implantar Multer y Cloudinary.
 const multerUpload = require('../middlewares/files.middleware');
 const uploadToCloudinary = require('../middlewares/files.middleware');
 const Char = require('../models/Char.model');
@@ -82,7 +81,14 @@ const charGet = async (req, res, next) => {
 
     try {
         const char = await Char.findById(id);
-        return res.status(200).render('./chars/char', { char });
+        const professions = [];
+        for (let profession in char.toObject().professions) {
+            if (char.toObject().professions[profession]) {
+                professions.push(profession);
+            }
+        };
+
+        return res.status(200).render('./chars/char', { char, professions });
 
         // Al interactuar con Handlebars, esta parte del código debe omitirse.
         // if (char) {
