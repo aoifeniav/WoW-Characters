@@ -1,6 +1,8 @@
 const multer = require('multer');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Multer config
 const ACCEPTED_FILE_EXTENSIONS = ['image/png', 'image/jpg', 'image/jpeg'];
@@ -20,9 +22,9 @@ const multerUpload = multer({ storage: storage, fileFilter });
 
 // Cloudinary config
 cloudinary.config({
-    cloud_name: 'wowchars',
-    api_key: '268364727782586',
-    api_secret: 'rP3T24ixCxUtr0aAlk-Lmyrx63o',
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET,
 });
 
 const cloudinaryUpload = (req, res, next) => {

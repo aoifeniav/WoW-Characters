@@ -32,7 +32,6 @@
         <p>Name</p>
         <input value="{{char.name}}" type="text" name="name" placeholder="name">
       </label>
-      {{!-- TODO: Hay que configurar el script de abajo --}}
       <label>
         <p>Faction</p>
         <select name="faction" placeholder="Faction">
@@ -182,16 +181,6 @@
     <p>The character you are trying to edit does not exist.</p>
     {{/if}}
   </main>
-
-  {{!--
-  <script>
-    const markSelected = () => {
-      const charValue = {{{ json char }}}
-    document.querySelector(`option[value='${charValue.faction}']`).selected = true;
-      }
-    window.onload = markSelected;
-  </script>
-  --}}
 </body>
 
 </html>
