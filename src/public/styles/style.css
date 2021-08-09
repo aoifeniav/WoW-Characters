@@ -93,6 +93,10 @@ option {
   background: var(--color-bg);
 }
 
+.d-none {
+  display: none !important;
+}
+
 .btn__group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -326,5 +330,11 @@ header .fas {
 .char__professions ul {
   padding: 0;
   list-style: none;
+}
+
+.error {
+  width: 380px;
+  margin: 0 auto;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

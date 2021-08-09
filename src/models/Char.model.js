@@ -13,8 +13,8 @@ const charSchema = new Schema(
         race: {
             type: String,
             required: true,
-            enum: ["blood elf", "dark iron dwarf", "draenei", "dwarf", "gnome", "goblin", "highmountain tauren", "kul tiran", "lightforged draenei", "human", 
-            "mag'har orc", "mechagnome", "night elf", "nightborne", "orc", "pandaren", "tauren", "troll", "undead", "void elf", "vulpera", "worgen", "zandalari troll"]
+            enum: ["blood elf", "dark iron dwarf", "draenei", "dwarf", "gnome", "goblin", "highmountain tauren", "kul tiran", "lightforged draenei", "human",
+                "mag'har orc", "mechagnome", "night elf", "nightborne", "orc", "pandaren", "tauren", "troll", "undead", "void elf", "vulpera", "worgen", "zandalari troll"]
         },
         charClass: {
             type: String,
@@ -37,6 +37,7 @@ const charSchema = new Schema(
             skinning: { type: Boolean, default: false },
             tailoring: { type: Boolean, default: false }
         },
+        guild: { type: mongoose.Types.ObjectId, ref: 'Guild' },
         owner: { type: mongoose.Types.ObjectId, ref: 'Users' }
     },
     { timestamps: true }

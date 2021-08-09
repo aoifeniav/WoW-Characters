@@ -8,6 +8,7 @@ const guildSchema = new Schema(
         faction: { type: String, required: true },
         realm: { type: String, required: true },
         founded: { type: Number },
+        master: { type: mongoose.Types.ObjectId, ref: 'Guilds' },
         members: [ { type: mongoose.Types.ObjectId, ref: 'Characters' } ]
     },
     { timestamps: true }

@@ -47,7 +47,7 @@ app.use(session({
     cookie: {
         maxAge: 24 * 60 * 60 * 1000,
     },
-    store: MongoStore.create({mongoUrl: db.DB_URL}),
+    store: MongoStore.create({ mongoUrl: db.DB_URL }),
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -65,7 +65,7 @@ app.use('*', (req, res, next) => {
 // Manejador de errores.
 app.use((error, req, res, next) => {
     console.log(error);
-    return res.status(error.status || 500).json(error.message || "Undefined error.");
+    return res.status(error.status || 500).render('/error', { status: error.status, message: error.message });
 });
 
 app.listen(PORT, () => {

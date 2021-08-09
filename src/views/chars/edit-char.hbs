@@ -29,76 +29,87 @@
   <main>
     <form action="/chars/edit-char/{{char._id}}?_method=PUT" method="POST" enctype="multipart/form-data" class="form">
       <label>
-        <p>Name</p>
+        <span>Name</span>
         <input value="{{char.name}}" type="text" name="name" placeholder="name">
       </label>
       <label>
-        <p>Faction</p>
+        <span>Faction</span>
         <select name="faction" placeholder="Faction">
-          <option value="Alliance" {{#ifEquals char.faction 'Alliance'}} selected {{/ifEquals}}>Alliance</option>
-          <option value="Horde" {{#ifEquals char.faction 'Horde'}} selected {{/ifEquals}}>Horde</option>
+          <option value="Alliance" {{#ifEquals char.faction 'Alliance' }} selected {{/ifEquals}}>Alliance</option>
+          <option value="Horde" {{#ifEquals char.faction 'Horde' }} selected {{/ifEquals}}>Horde</option>
         </select>
       </label>
       <label>
-        <p>Race</p>
+        <span>Race</span>
         <select name="race" placeholder="Race">
           <optgroup label="Alliance">
-            <option value="dark iron dwarf" {{#ifEquals char.race 'dark iron dwarf'}} selected {{/ifEquals}}>Dark Iron dwarf</option>
-            <option value="draenei" {{#ifEquals char.race 'draenei'}} selected {{/ifEquals}}>Draenei</option>
-            <option value="dwarf" {{#ifEquals char.race 'dwarf'}} selected {{/ifEquals}}>Dwarf</option>
-            <option value="gnome" {{#ifEquals char.race 'gnome'}} selected {{/ifEquals}}>Gnome</option>
-            <option value="kul tiran" {{#ifEquals char.race 'kul tiran'}} selected {{/ifEquals}}>Kul Tiran</option>
-            <option value="lightforged draenei" {{#ifEquals char.race 'lightforged draenei'}} selected {{/ifEquals}}>Lightforged draenei</option>
-            <option value="human" {{#ifEquals char.race 'human'}} selected {{/ifEquals}}>Human</option>
-            <option value="mechagnome" {{#ifEquals char.race 'mechagnome'}} selected {{/ifEquals}}>Mechagnome</option>
-            <option value="night elf" {{#ifEquals char.race 'night elf'}} selected {{/ifEquals}}>Night elf</option>
-            <option value="pandaren" {{#ifEquals char.race 'pandaren'}} selected {{/ifEquals}}>Pandaren</option>
-            <option value="void elf" {{#ifEquals char.race 'void elf'}} selected {{/ifEquals}}>Void elf</option>
-            <option value="worgen" {{#ifEquals char.race 'worgen'}} selected {{/ifEquals}}>Worgen</option>
+            <option value="dark iron dwarf" {{#ifEquals char.race 'dark iron dwarf' }} selected {{/ifEquals}}>Dark Iron
+              dwarf</option>
+            <option value="draenei" {{#ifEquals char.race 'draenei' }} selected {{/ifEquals}}>Draenei</option>
+            <option value="dwarf" {{#ifEquals char.race 'dwarf' }} selected {{/ifEquals}}>Dwarf</option>
+            <option value="gnome" {{#ifEquals char.race 'gnome' }} selected {{/ifEquals}}>Gnome</option>
+            <option value="kul tiran" {{#ifEquals char.race 'kul tiran' }} selected {{/ifEquals}}>Kul Tiran</option>
+            <option value="lightforged draenei" {{#ifEquals char.race 'lightforged draenei' }} selected {{/ifEquals}}>
+              Lightforged draenei</option>
+            <option value="human" {{#ifEquals char.race 'human' }} selected {{/ifEquals}}>Human</option>
+            <option value="mechagnome" {{#ifEquals char.race 'mechagnome' }} selected {{/ifEquals}}>Mechagnome</option>
+            <option value="night elf" {{#ifEquals char.race 'night elf' }} selected {{/ifEquals}}>Night elf</option>
+            <option value="pandaren" {{#ifEquals char.race 'pandaren' }} selected {{/ifEquals}}>Pandaren</option>
+            <option value="void elf" {{#ifEquals char.race 'void elf' }} selected {{/ifEquals}}>Void elf</option>
+            <option value="worgen" {{#ifEquals char.race 'worgen' }} selected {{/ifEquals}}>Worgen</option>
           </optgroup>
           <optgroup label="Horde">
-            <option value="blood elf" {{#ifEquals char.race 'blood elf'}} selected {{/ifEquals}}>Blood elf</option>
-            <option value="goblin" {{#ifEquals char.race 'goblin'}} selected {{/ifEquals}}>Goblin</option>
-            <option value="highmountain tauren" {{#ifEquals char.race 'highmountain tauren'}} selected {{/ifEquals}}>Highmountain tauren</option>
-            <option value="mag'har orc" {{#ifEquals char.race "mag'har orc"}} selected {{/ifEquals}}>Mag'har orc</option>
-            <option value="nightborne" {{#ifEquals char.race 'nightborne'}} selected {{/ifEquals}}>Nightborne</option>
-            <option value="orc" {{#ifEquals char.race 'orc'}} selected {{/ifEquals}}>Orc</option>
-            <option value="pandaren" {{#ifEquals char.race 'pandaren'}} selected {{/ifEquals}}>Pandaren</option>
-            <option value="tauren" {{#ifEquals char.race 'tauren'}} selected {{/ifEquals}}>Tauren</option>
-            <option value="troll" {{#ifEquals char.race 'troll'}} selected {{/ifEquals}}>Troll</option>
-            <option value="undead" {{#ifEquals char.race 'undead'}} selected {{/ifEquals}}>Undead</option>
-            <option value="vulpera" {{#ifEquals char.race 'vulpera'}} selected {{/ifEquals}}>Vulpera</option>
-            <option value="zandalari troll" {{#ifEquals char.race 'zandalari troll'}} selected {{/ifEquals}}>Zandalari troll</option>
+            <option value="blood elf" {{#ifEquals char.race 'blood elf' }} selected {{/ifEquals}}>Blood elf</option>
+            <option value="goblin" {{#ifEquals char.race 'goblin' }} selected {{/ifEquals}}>Goblin</option>
+            <option value="highmountain tauren" {{#ifEquals char.race 'highmountain tauren' }} selected {{/ifEquals}}>
+              Highmountain tauren</option>
+            <option value="mag'har orc" {{#ifEquals char.race "mag'har orc" }} selected {{/ifEquals}}>Mag'har orc
+            </option>
+            <option value="nightborne" {{#ifEquals char.race 'nightborne' }} selected {{/ifEquals}}>Nightborne</option>
+            <option value="orc" {{#ifEquals char.race 'orc' }} selected {{/ifEquals}}>Orc</option>
+            <option value="pandaren" {{#ifEquals char.race 'pandaren' }} selected {{/ifEquals}}>Pandaren</option>
+            <option value="tauren" {{#ifEquals char.race 'tauren' }} selected {{/ifEquals}}>Tauren</option>
+            <option value="troll" {{#ifEquals char.race 'troll' }} selected {{/ifEquals}}>Troll</option>
+            <option value="undead" {{#ifEquals char.race 'undead' }} selected {{/ifEquals}}>Undead</option>
+            <option value="vulpera" {{#ifEquals char.race 'vulpera' }} selected {{/ifEquals}}>Vulpera</option>
+            <option value="zandalari troll" {{#ifEquals char.race 'zandalari troll' }} selected {{/ifEquals}}>Zandalari
+              troll</option>
           </optgroup>
         </select>
       </label>
       <label>
-        <p>Class</p>
+        <span>Class</span>
         <select name="charClass" placeholder="Class">
-          <option value="death knight" {{#ifEquals char.charClass 'death knight'}} selected {{/ifEquals}}>Death knight</option>
-          <option value="demon hunter" {{#ifEquals char.charClass 'demon hunter'}} selected {{/ifEquals}}>Demon hunter</option>
-          <option value="druid" {{#ifEquals char.charClass 'druid'}} selected {{/ifEquals}}>Druid</option>
-          <option value="hunter" {{#ifEquals char.charClass 'hunter'}} selected {{/ifEquals}}>Hunter</option>
-          <option value="mage" {{#ifEquals char.charClass 'mage'}} selected {{/ifEquals}}>Mage</option>
-          <option value="monk" {{#ifEquals char.charClass 'monk'}} selected {{/ifEquals}}>Monk</option>
-          <option value="paladin" {{#ifEquals char.charClass 'paladin'}} selected {{/ifEquals}}>Paladin</option>
-          <option value="priest" {{#ifEquals char.charClass 'priest'}} selected {{/ifEquals}}>Priest</option>
-          <option value="rogue" {{#ifEquals char.charClass 'rogue'}} selected {{/ifEquals}}>Rogue</option>
-          <option value="shaman" {{#ifEquals char.charClass 'shaman'}} selected {{/ifEquals}}>Shaman</option>
-          <option value="warlock" {{#ifEquals char.charClass 'warlock'}} selected {{/ifEquals}}>Warlock</option>
-          <option value="warrior" {{#ifEquals char.charClass 'warrior'}} selected {{/ifEquals}}>Warrior</option>
+          <option value="death knight" {{#ifEquals char.charClass 'death knight' }} selected {{/ifEquals}}>Death knight
+          </option>
+          <option value="demon hunter" {{#ifEquals char.charClass 'demon hunter' }} selected {{/ifEquals}}>Demon hunter
+          </option>
+          <option value="druid" {{#ifEquals char.charClass 'druid' }} selected {{/ifEquals}}>Druid</option>
+          <option value="hunter" {{#ifEquals char.charClass 'hunter' }} selected {{/ifEquals}}>Hunter</option>
+          <option value="mage" {{#ifEquals char.charClass 'mage' }} selected {{/ifEquals}}>Mage</option>
+          <option value="monk" {{#ifEquals char.charClass 'monk' }} selected {{/ifEquals}}>Monk</option>
+          <option value="paladin" {{#ifEquals char.charClass 'paladin' }} selected {{/ifEquals}}>Paladin</option>
+          <option value="priest" {{#ifEquals char.charClass 'priest' }} selected {{/ifEquals}}>Priest</option>
+          <option value="rogue" {{#ifEquals char.charClass 'rogue' }} selected {{/ifEquals}}>Rogue</option>
+          <option value="shaman" {{#ifEquals char.charClass 'shaman' }} selected {{/ifEquals}}>Shaman</option>
+          <option value="warlock" {{#ifEquals char.charClass 'warlock' }} selected {{/ifEquals}}>Warlock</option>
+          <option value="warrior" {{#ifEquals char.charClass 'warrior' }} selected {{/ifEquals}}>Warrior</option>
         </select>
       </label>
       <label>
-        <p>Level</p>
+        <span>Level</span>
         <input value="{{char.level}}" type="number" name="level" min="1" max="60" placeholder="Level">
       </label>
       <label>
-        <p>Realm</p>
+        <span>Realm</span>
         <input value="{{char.realm}}" type="text" name="realm" placeholder="Realm">
       </label>
+      <label>
+        <span>Guild</span>
+        <input value="{{char.guild}}" type="text" name="guild">
+      </label>
       <div class="form__professions">
-        <p>Professions:</p>
+        <p>Professions</p>
         <div>
           <label>
             <input type="checkbox" {{#if char.professions.alchemy}} checked {{/if}} name="alchemy">
@@ -166,11 +177,10 @@
           </label>
         </div>
       </div>
-        <label>
-          <p>Picture</p>
-          <input type="file" name="pic">
-        </label>
-
+      <label>
+        <span>Picture</span>
+        <input type="file" name="pic">
+      </label>
       <div class="btn__group">
         <a href="/chars/{{char._id}}" class="btn--border">Return</a>
         <button type="submit" class="btn--border">Save</button>

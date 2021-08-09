@@ -1,0 +1,49 @@
+body {
+    @include font-reset;
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-text);
+
+    &:visited {
+        color: var(--color-text);
+    }
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    @include font-reset;
+}
+
+input {
+    @include form;
+    background: transparent;
+
+    &[type="checkbox"] {
+        width: auto;
+    }
+}
+
+select {
+    @include form;
+    background: transparent;
+}
+
+optgroup,
+option {
+    @include form;
+    background: var(--color-bg);
+}
+
+.d-none {
+    display: none !important;
+}

@@ -16,6 +16,7 @@ const newCharGet = async (req, res, next) => {
     return res.status(200).render('./chars/new-char', { user: req.user });
 };
 
+// TODO: Crear relación guild-char al crear y editar personaje.
 const newCharPost = async (req, res, next) => {
     try {
         const { name, faction, race, charClass, level, realm, pic, owner, ...professions } = req.body;
