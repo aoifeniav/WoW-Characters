@@ -223,7 +223,7 @@ header .fas {
           justify-content: space-between;
   background-repeat: no-repeat;
   background-size: 1300px;
-  background-position: 46% 48%;
+  background-position: 44% 48%;
 }
 
 .chars__up-group {
@@ -259,12 +259,13 @@ header .fas {
 
 .char__bg {
   background-repeat: no-repeat;
-  background-position: center 60%;
+  background-size: 2000px;
+  background-position: center 65%;
 }
 
 .char__page {
-  margin: 0 auto;
-  height: 600px;
+  margin: -30px auto 0 auto;
+  height: 650px;
   width: 800px;
   text-transform: uppercase;
 }
@@ -274,7 +275,7 @@ header .fas {
   height: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding-bottom: 150px;
+  padding: 50px 50px 150px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -2,6 +2,7 @@ const multerUpload = require('../middlewares/files.middleware');
 const uploadToCloudinary = require('../middlewares/files.middleware');
 const Char = require('../models/Char.model');
 const User = require('../models/User.model');
+const Guild = require('../models/Guild.model');
 
 const charListGet = async (req, res, next) => {
     try {
@@ -19,13 +20,13 @@ const newCharGet = async (req, res, next) => {
 // TODO: Crear relación guild-char al crear y editar personaje.
 const newCharPost = async (req, res, next) => {
     try {
-        const { name, faction, race, charClass, level, realm, pic, owner, ...professions } = req.body;
+        const { name, faction, race, charClass, level, realm, guild, pic, owner, ...professions } = req.body;
 
         for (let profession in professions) {
             professions[profession] = professions[profession] === 'on' ? true : false;
         }
 
-        const characterData = { name, faction, race, charClass, level, realm, pic: req.picUrl, owner, professions }
+        const characterData = { name, faction, race, charClass, level, realm, guild, pic: req.picUrl, owner, professions }
         const newChar = new Char(characterData);
         const createdChar = await newChar.save();
 
@@ -34,6 +35,17 @@ const newCharPost = async (req, res, next) => {
             { $addToSet: { chars: createdChar._id } },
             { new: true }
         );
+        
+        const existingGuild = await Guild.findOne({ name: guild });
+        if (existingGuild) {
+            await Guild.findOneAndUpdate(
+                { name: guild },
+                { $addToSet: { chars: createdChar._id } },
+                { new: true }
+            );
+        }
+
+
 
         return res.redirect(`/chars/${createdChar._id}`);
     } catch (error) {

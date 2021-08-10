@@ -1,0 +1,53 @@
+.chars {
+    &__container {
+        margin: 0 auto;
+        max-width: 1100px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    &__noCharsMsg {
+        text-align: center;
+    }
+
+    &__card {
+        min-width: 300px;
+        max-width: 300px;
+        height: 100px;
+        border: 1px solid var(--color-dark);
+        margin: 15px;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-repeat: no-repeat;
+        background-size: 1300px;
+        background-position: 44% 48%;
+    }
+
+    &__up-group {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__name {
+        line-height: 0;
+    }
+
+    &__icons-group {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-left: 15px;
+    }
+
+    &__down-group {
+        & div {
+            margin-right: 5px;
+            text-transform: uppercase;
+        }
+    }
+}
