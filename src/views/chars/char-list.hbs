@@ -32,12 +32,11 @@
         {{/ifEquals}}
 
         {{#each chars}}
-        <div class="chars__card"
-            style="background-image: linear-gradient(105deg, rgba(22,16,12,1) 0%, rgba(22,16,12,1) 40%, rgba(22,16,12,0) 50%), url({{pic}});
-            {{#ifEquals race 'gnome'}} background-position-y: 57% {{/ifEquals}}
-            {{#ifEquals race 'goblin'}} background-position-y: 55% {{/ifEquals}}
-            {{#ifEquals race 'mechagnome'}} background-position-y: 57% {{/ifEquals}}
-            {{#ifEquals race 'vulpera'}} background-position-y: 56% {{/ifEquals}}">
+        <div class="chars__card" style="background-image: linear-gradient(105deg, rgba(22,16,12,1) 0%, rgba(22,16,12,1) 40%, rgba(22,16,12,0) 50%), url({{pic}});
+                {{#ifEquals race 'gnome'}} background-position-y: 57% {{/ifEquals}}
+                {{#ifEquals race 'goblin'}} background-position-y: 55% {{/ifEquals}}
+                {{#ifEquals race 'mechagnome'}} background-position-y: 57% {{/ifEquals}}
+                {{#ifEquals race 'vulpera'}} background-position-y: 56% {{/ifEquals}}">
             <div class="chars__up-group">
                 <h2 class="chars__name">{{name}}</h2>
                 <div class="chars__icons-group">

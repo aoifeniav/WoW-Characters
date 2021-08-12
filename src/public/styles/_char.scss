@@ -18,27 +18,50 @@
         box-sizing: border-box;
         padding: 50px 50px 150px 50px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
     }
 
-    &__basic-info {
+    &__faction {
+        flex-basis: 50%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
 
-        &--up {
+        > div {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
 
-            & img {
-                width: 100px;
-                margin-bottom: 10px;
-            }
+        img {
+            width: 100px;
+            margin-bottom: 10px;
         }
     }
 
+    &__guild {
+        flex-basis: 50%;
+        text-align: right;
+
+        & span:first-of-type {
+            margin-bottom: 10px;
+        }
+
+        & span {
+            display: block;
+        }
+    }
+
+    &__basic-info {
+        flex-basis: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
     &__professions {
+        flex-basis: 50%;
+        text-align: right;
         align-self: flex-end;
 
         & span:first-of-type {

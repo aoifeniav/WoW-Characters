@@ -29,8 +29,8 @@
         {{#if char}}
         <section class="char__page">
             <div class="char__data">
-                <div class="char__basic-info">
-                    <div class="char__basic-info--up">
+                <div class="char__faction">
+                    <div>
                         {{#ifEquals char.faction 'Alliance'}}
                         <img src="https://res.cloudinary.com/wowchars/image/upload/v1628240343/logo-alliance_garxe4.png"
                             alt="Alliance character">
@@ -41,15 +41,20 @@
                         {{/ifEquals}}
                         <div>{{char.realm}}</div>
                     </div>
-                    <div class="char__basic-info--down">
-                        <div>Lv {{char.level}}</div>
-                        <div>{{char.race}}</div>
-                        <div>{{char.charClass}}</div>
-                    </div>
+                </div>
+                <div class="char__guild">
+                    {{#if char.guild}}
+                    <span>Guild:</span>
+                    <span>{{guild.name}}</span>
+                    {{/if}}
+                </div>
+                <div class="char__basic-info">
+                    <div>Lv {{char.level}}</div>
+                    <div>{{char.race}}</div>
+                    <div>{{char.charClass}}</div>
                 </div>
                 <div class="char__professions">
-                    <span>Guild:</span>
-                    <span>{{char.guild}}</span>
+                    {{!-- TODO: #if professions para que, si no hay, no salga nada --}}
                     <span>Professions:</span>
                     {{#ifEquals professions.length 0}}
                     <span>None</span>
