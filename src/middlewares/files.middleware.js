@@ -8,6 +8,7 @@ dotenv.config();
 const ACCEPTED_FILE_EXTENSIONS = ['image/png', 'image/jpg', 'image/jpeg'];
 
 const storage = multer.memoryStorage();
+
 const fileFilter = (req, file, callback) => {
     if (!ACCEPTED_FILE_EXTENSIONS.includes(file.mimetype)) {
         const error = new Error(`File type not valid. File types allowed: ${ACCEPTED_FILE_EXTENSIONS}`);

@@ -65,7 +65,7 @@ app.use('*', (req, res, next) => {
 // Manejador de errores.
 app.use((error, req, res, next) => {
     console.log(error);
-    return res.status(error.status || 500).render('/error', { status: error.status, message: error.message });
+    return res.status(error.status || 500).render('./error', { status: error.status, message: error.message });
 });
 
 app.listen(PORT, () => {

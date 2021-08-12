@@ -1,5 +1,3 @@
-const multerUpload = require('../middlewares/files.middleware');
-const uploadToCloudinary = require('../middlewares/files.middleware');
 const Char = require('../models/Char.model');
 const User = require('../models/User.model');
 const Guild = require('../models/Guild.model');
@@ -20,10 +18,20 @@ const newCharGet = async (req, res, next) => {
 // TODO: Crear relación guild-char al crear y editar personaje.
 const newCharPost = async (req, res, next) => {
     try {
-        const { name, faction, race, charClass, level, realm, guild, pic, owner, ...professions } = req.body;
+        let { name, faction, race, charClass, level, realm, guild, pic, owner, ...professions } = req.body;
 
         for (let profession in professions) {
             professions[profession] = professions[profession] === 'on' ? true : false;
+        }
+
+        const existingGuild = await Guild.findOne({ name: guild });
+        if (existingGuild) {
+            guild = existingGuild._id;
+        } else {
+            const guildData = { name: guild, faction, realm }
+            const newGuild = new Guild(guildData);
+            await newGuild.save();
+            guild = newGuild._id;
         }
 
         const characterData = { name, faction, race, charClass, level, realm, guild, pic: req.picUrl, owner, professions }
@@ -35,17 +43,25 @@ const newCharPost = async (req, res, next) => {
             { $addToSet: { chars: createdChar._id } },
             { new: true }
         );
-        
-        const existingGuild = await Guild.findOne({ name: guild });
+
+        // Cuando la guild ya existe y se crea un personaje nuevo con el mismo nombre de guild, se crea una nueva guild con nombre=id de la guild buena por la línea 55 (name: guild).
         if (existingGuild) {
-            await Guild.findOneAndUpdate(
-                { name: guild },
-                { $addToSet: { chars: createdChar._id } },
+            await Guild.findByIdAndUpdate(
+                existingGuild._id,
+                { $addToSet: { members: createdChar._id } },
+                { new: true }
+            );
+        } else {
+            const guildData = { name: guild, faction, realm }
+            const newGuild = new Guild(guildData);
+            await newGuild.save();
+
+            await Guild.findByIdAndUpdate(
+                newGuild._id,
+                { $addToSet: { members: createdChar._id } },
                 { new: true }
             );
         }
-
-
 
         return res.redirect(`/chars/${createdChar._id}`);
     } catch (error) {
@@ -102,16 +118,6 @@ const charGet = async (req, res, next) => {
         };
 
         return res.status(200).render('./chars/char', { char, professions });
-
-        // Al interactuar con Handlebars, esta parte del código debe omitirse.
-        // if (char) {
-        //     return res.status(200).json(char)
-        // } else {
-        //     // Si el código se está ejecutando sin fallos, podemos crear un error y enviarlo con throw al catch, que será quien haga next (al gestor de errores).
-        //     const error = new Error('No existe el personaje con ese ID de MongoDB.');
-        //     error.status = 404;
-        //     throw error
-        // }
     } catch (error) {
         next(error);
     };
@@ -124,10 +130,22 @@ const charDelete = async (req, res, next) => {
         const deleted = await Char.findByIdAndDelete(id);
 
         await User.findByIdAndUpdate(
-            req.user._id,
+            deleted.owner,
             { $pull: { chars: id } },
             { new: true }
         );
+
+        await Guild.findByIdAndUpdate(
+            deleted.guild,
+            { $pull: { members: id } },
+            { new: true }
+        );
+
+        const deletedCharGuild = await Guild.findById(deleted.guild);
+
+        if (deletedCharGuild.members.length === 0) {
+           await Guild.findByIdAndDelete(deletedCharGuild._id);
+        }
 
         if (!deleted) {
             return res.status(404).json('The character you are trying to delete does not exist.')
