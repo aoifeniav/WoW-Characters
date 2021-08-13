@@ -45,7 +45,7 @@
                 <div class="char__guild">
                     {{#if char.guild}}
                     <span>Guild:</span>
-                    <span>{{guild.name}}</span>
+                    <a href="/guild/{{guild.id}}">{{guild.name}}</a>
                     {{/if}}
                 </div>
                 <div class="char__basic-info">
@@ -65,7 +65,6 @@
                 </div>
             </div>
             <div class="btn__group">
-                <a href="/chars/" class="btn--border">Return</a>
                 <a href="/chars/edit-char/{{char._id}}" class="btn--border">Edit</a>
                 <form action="/chars/{{char._id}}?_method=DELETE" method="POST">
                     <button type="submit" class="btn--border">Delete</button>
