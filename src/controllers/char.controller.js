@@ -82,14 +82,35 @@ const editCharPut = async (req, res, next) => {
             professions[profession] = professions[profession] === 'on' ? true : false;
         }
 
-        const characterDoc = await Char.findById(id);
+        let guildDoc;
+        // If guild field contains text, we find the guild with the name given.
+        if (guild.trim() !== '') {
+            guildDoc = await Guild.findOne({ name: guild });
+            // If there is no guild with the name given, a new guild is created.
+            if (guildDoc === null) {
+                const guildData = { name: guild, faction, realm }
+                guildDoc = new Guild(guildData);
+                await guildDoc.save();
 
-        let guildDoc = await Guild.findOne({ name: guild });
-        if (guildDoc === null) {
-            const guildData = { name: guild, faction, realm }
-            guildDoc = new Guild(guildData);
-            await guildDoc.save();
+                // If char belonged to a previous guild, char is removed from previous guild's members.
+                let oldGuildDoc = await Guild.findOne({ members: id });
+                if (oldGuildDoc) {
+                    const guildMemberIndex = oldGuildDoc.members.findIndex((memberId) => memberId == id);
+                    if (guildMemberIndex !== -1) {
+                        oldGuildDoc.members.splice(guildMemberIndex, 1);
+                        oldGuildDoc.save();
+                    }
 
+                    // If char was previous guild's only member, previous guild is deleted.
+                    if (oldGuildDoc.members.length === 0) {
+                        await Guild.findByIdAndDelete(oldGuildDoc._id);
+                    }
+                }
+            }
+
+        // If guild field does not contain text and char belonged to a previous guild,
+        // char is removed from previous guild's members.
+        } else {
             let oldGuildDoc = await Guild.findOne({ members: id });
             if (oldGuildDoc) {
                 const guildMemberIndex = oldGuildDoc.members.findIndex((memberId) => memberId == id);
@@ -98,13 +119,20 @@ const editCharPut = async (req, res, next) => {
                     oldGuildDoc.save();
                 }
 
+                // If char was previous guild's only member, previous guild is deleted.
                 if (oldGuildDoc.members.length === 0) {
                     await Guild.findByIdAndDelete(oldGuildDoc._id);
                 }
             }
         }
 
-        const characterData = { name, faction, race, charClass, level, realm, guild: guildDoc._id, professions }
+        const characterData = { name, faction, race, charClass, level, realm, professions }
+
+        if (guildDoc) {
+            characterData.guild = guildDoc._id;
+        } else {
+            characterData.guild = null;
+        }
 
         if (req.picUrl) {
             characterData.pic = req.picUrl;
@@ -116,11 +144,13 @@ const editCharPut = async (req, res, next) => {
             { new: true }
         );
 
-        await Guild.findByIdAndUpdate(
-            guildDoc._id,
-            { $addToSet: { members: editedChar._id } },
-            { new: true }
-        );
+        if (guildDoc) {
+            await Guild.findByIdAndUpdate(
+                guildDoc._id,
+                { $addToSet: { members: editedChar._id } },
+                { new: true }
+            );
+        }
 
         return res.redirect(`/chars/${id}`);
     } catch (error) {
