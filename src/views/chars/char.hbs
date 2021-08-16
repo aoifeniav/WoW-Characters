@@ -54,7 +54,7 @@
                     <div>{{char.charClass}}</div>
                 </div>
                 <div class="char__professions">
-                    {{!-- TODO: #if professions para que, si no hay, no salga nada --}}
+                    {{#if professions}}
                     <span>Professions:</span>
                     {{#ifEquals professions.length 0}}
                     <span>None</span>
@@ -62,6 +62,7 @@
                     {{#each professions}}
                     <span>{{this}}</span>
                     {{/each}}
+                    {{/if}}
                 </div>
             </div>
             <div class="btn__group">

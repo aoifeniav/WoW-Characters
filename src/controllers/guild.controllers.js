@@ -5,7 +5,7 @@ const guildGet = async (req, res, next) => {
 
     try {
         const guild = await Guild.findById(id).populate('members');
-        return res.status(200).render('./guild/guild', { guild });
+        return res.status(200).render('./guild/guild-members', { guild, user: req.user });
     } catch (error) {
         return next(error);
     }
